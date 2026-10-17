@@ -31,7 +31,7 @@ export function Experience() {
         <Reveal
           as="article"
           key={job.title}
-          className="-mx-6 flex flex-col gap-[18px] rounded-xl border border-transparent p-6 transition-[background-color,border-color] duration-250 hover:border-line-hover hover:bg-surface-hover"
+          className="-mx-4 flex flex-col gap-[18px] rounded-xl border border-transparent p-4 tab:-mx-6 tab:p-6 transition-[background-color,border-color] duration-250 hover:border-line-hover hover:bg-surface-hover"
         >
           <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
             <div className="min-w-0">
