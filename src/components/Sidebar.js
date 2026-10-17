@@ -19,7 +19,7 @@ export default function Sidebar() {
       initial="hidden"
       animate="show"
       variants={stagger(0.1, 0.05)}
-      className="relative box-border grid w-full flex-[1_1_100%] grid-cols-[88px_minmax(0,1fr)] content-start gap-x-4 gap-y-[clamp(8px,1.4vh,14px)] self-start pt-8 pb-2 [grid-template-areas:'photo_head'_'bio_bio'_'cta_cta'] tab:grid-cols-[minmax(180px,250px)_minmax(0,1fr)] tab:content-center tab:gap-x-[clamp(24px,4vw,40px)] tab:pt-10 tab:[grid-template-areas:'photo_head'_'photo_bio'_'photo_cta'] wide:sticky wide:top-0 wide:h-screen wide:max-w-[440px] wide:flex-[1_1_340px] wide:grid-cols-[minmax(0,1fr)] wide:grid-rows-[minmax(120px,1fr)_auto_auto_auto_auto] wide:content-stretch wide:gap-x-0 wide:overflow-hidden wide:pt-[clamp(20px,4.5vh,56px)] wide:pb-[clamp(20px,4vh,48px)] wide:[grid-template-areas:'photo'_'head'_'bio'_'nav'_'cta']"
+      className="relative box-border grid w-full flex-[1_1_100%] grid-cols-[88px_minmax(0,1fr)] content-start gap-x-4 gap-y-[clamp(8px,1.4vh,14px)] self-start pt-8 pb-2 [grid-template-areas:'photo_head'_'bio_bio'_'cta_cta'] tab:grid-cols-[minmax(180px,250px)_minmax(0,1fr)] tab:content-center tab:gap-x-[clamp(24px,4vw,40px)] tab:pt-10 tab:[grid-template-areas:'photo_head'_'photo_bio'_'photo_cta'] wide:sticky wide:top-0 wide:h-screen wide:max-w-[440px] wide:flex-[1_1_340px] wide:grid-cols-[minmax(0,1fr)] wide:grid-rows-[minmax(120px,320px)_auto_auto_auto_auto] wide:content-start wide:gap-x-0 wide:overflow-hidden wide:pt-[clamp(20px,4.5vh,56px)] wide:pb-[clamp(20px,4vh,48px)] wide:[grid-template-areas:'photo'_'head'_'bio'_'nav'_'cta']"
     >
       <motion.div
         variants={photoReveal}
