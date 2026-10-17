@@ -5,11 +5,11 @@ import { NAV_ITEMS } from "@/lib/data";
 import { fadeLeft, stagger } from "@/lib/motion";
 import { scrollToSection, useActiveSection } from "./ActiveSection";
 
-export default function SideNav() {
+export default function SideNav({ className = "" }) {
   const active = useActiveSection();
 
   return (
-    <motion.nav variants={stagger(0.06)} aria-label="Sections" className="hidden flex-none flex-col wide:flex">
+    <motion.nav variants={stagger(0.06)} aria-label="Sections" className={`hidden flex-col wide:flex ${className}`}>
       {NAV_ITEMS.map(({ id, label }) => {
         const isActive = id === active;
         return (

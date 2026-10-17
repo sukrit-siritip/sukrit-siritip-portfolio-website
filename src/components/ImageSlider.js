@@ -16,7 +16,7 @@ export default function ImageSlider({ images, alt, position = "50% 50%" }) {
 
   return (
     <motion.div
-      className="relative aspect-[16/10] w-full touch-pan-y overflow-hidden rounded-[9px] bg-surface-2"
+      className="relative aspect-video w-full touch-pan-y overflow-hidden rounded-[9px] bg-surface-2"
       role="group"
       aria-roledescription="carousel"
       aria-label={alt}
@@ -33,8 +33,9 @@ export default function ImageSlider({ images, alt, position = "50% 50%" }) {
           <div key={src} className="relative h-full flex-[0_0_100%] overflow-hidden" aria-hidden={i !== index}>
             <Image
               src={src}
-              alt={`${alt} — screenshot ${i + 1}`}
+              alt={`${alt}, screenshot ${i + 1}`}
               fill
+              loading={i === 0 ? "eager" : "lazy"}
               draggable={false}
               sizes="(min-width: 960px) 640px, 100vw"
               className="object-cover transition-transform duration-700 ease-out select-none group-hover:scale-[1.03]"

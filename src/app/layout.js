@@ -14,13 +14,13 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata = {
-  title: "Sukrit Siritip — Frontend Developer",
+  title: "Sukrit Siritip | Frontend Developer",
   description:
     "Frontend Developer in Bangkok building enterprise web platforms with Next.js and React.",
   openGraph: {
-    title: "Sukrit Siritip — Frontend Developer",
+    title: "Sukrit Siritip | Frontend Developer",
     description:
-      "Enterprise web platforms with Next.js and React — component libraries, dashboards, and content platforms.",
+      "Enterprise web platforms with Next.js and React: component libraries, dashboards, and content platforms.",
     type: "website",
   },
 };

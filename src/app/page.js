@@ -15,10 +15,10 @@ export default function Home() {
         <MobileBar />
         <div className="relative z-[1] mx-auto box-content flex max-w-[1200px] flex-wrap gap-[clamp(32px,6vw,96px)] px-[clamp(20px,5vw,56px)]">
           <Sidebar />
-          <main className="flex min-w-0 flex-[1.4_1_460px] flex-col gap-[clamp(72px,10vw,112px)] pt-2 pb-16 wide:pt-[clamp(24px,9vh,96px)]">
+          <main className="flex min-w-0 flex-[1.4_1_460px] flex-col gap-[clamp(72px,10vw,112px)] pt-[clamp(24px,9vh,96px)] pb-16">
             <About />
-            <Experience />
             <Projects />
+            <Experience />
             <Skills />
             <Education />
             <Contact />

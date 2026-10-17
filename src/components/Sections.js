@@ -1,10 +1,13 @@
 import * as motion from "motion/react-client";
 import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, LINKS, PROJECTS, SKILL_GROUPS } from "@/lib/data";
 import { fadeLeft, fadeUp, hoverLift, pop, stagger, tapPress } from "@/lib/motion";
+import { countMonths, formatRange } from "@/lib/period";
+import CaseStudy from "./CaseStudy";
 import CountUp from "./CountUp";
+import Duration from "./Duration";
 import { LineIcon, LinkedInIcon } from "./icons";
 import ImageSlider from "./ImageSlider";
-import { Reveal, SectionTitle, TechPills, buttonStyles } from "./ui";
+import { Reveal, SectionTitle, buttonStyles } from "./ui";
 
 export function About() {
   return (
@@ -35,9 +38,10 @@ export function Experience() {
               <h3 className="m-0 text-[18px] font-semibold tracking-[-.01em] text-head">{job.title}</h3>
               <div className="mt-[3px] text-[15px] text-muted">{job.company}</div>
             </div>
-            <div className="flex flex-col items-end gap-[3px] pt-[3px]">
-              <div className="font-mono text-[12.5px] whitespace-nowrap text-soft">{job.dates}</div>
-              <div className="text-[13px] text-subtle">{job.duration}</div>
+            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-[3px] tab:flex-col tab:items-end tab:pt-[3px]">
+              <div className="font-mono text-[12.5px] whitespace-nowrap text-soft">{formatRange(job.period)}</div>
+              <span aria-hidden className="text-[13px] text-subtle tab:hidden">·</span>
+              <Duration period={job.period} buildMonths={countMonths(job.period)} className="text-[13px] whitespace-nowrap text-subtle" />
             </div>
           </div>
           {job.projects.map((p) => (
@@ -48,7 +52,6 @@ export function Experience() {
                   {text}
                 </p>
               ))}
-              <TechPills items={p.stack} />
             </div>
           ))}
         </Reveal>
@@ -82,12 +85,12 @@ export function Projects() {
                     <span className="absolute inset-0 animate-ping rounded-full bg-subtle opacity-60" />
                     <span className="relative size-1.5 rounded-full bg-subtle" />
                   </span>
-                  {p.internalLabel}
+                  {p.label}
                 </span>
               )}
             </div>
             <p className="m-0 text-[15px] leading-[1.65] text-pretty text-muted">{p.description}</p>
-            <TechPills items={p.stack} className="mt-1" />
+            <CaseStudy data={p.caseStudy} buildMonths={countMonths(p.caseStudy.period)} />
           </div>
         </Reveal>
       ))}
@@ -132,13 +135,13 @@ export function Education() {
   return (
     <section id="education" className="flex flex-col gap-5">
       <SectionTitle>Education</SectionTitle>
-      <Reveal className="flex flex-wrap gap-x-7 gap-y-2 rounded-[14px] border border-line bg-surface p-6">
-        <div className="flex-[0_0_116px] pt-1 font-mono text-[12.5px] text-muted">{EDUCATION.years}</div>
-        <div className="min-w-0 flex-[1_1_240px]">
+      <Reveal className="flex flex-col gap-2 rounded-[14px] border border-line bg-surface p-6 tab:flex-row tab:flex-wrap tab:gap-x-7">
+        <div className="font-mono text-[12.5px] text-muted tab:flex-[0_0_116px] tab:pt-1">{EDUCATION.years}</div>
+        <div className="min-w-0 tab:flex-[1_1_240px]">
           <h3 className="m-0 text-[18px] font-semibold text-head">{EDUCATION.school}</h3>
           <div className="mt-1 text-[15px] leading-[1.6] text-muted">{EDUCATION.degree}</div>
         </div>
-        <div className="flex flex-col items-start">
+        <div className="mt-3 flex items-center justify-between border-t border-line pt-4 tab:mt-0 tab:flex-col tab:items-start tab:justify-start tab:border-0 tab:pt-0">
           <div className="text-[12px] tracking-[.08em] text-subtle uppercase">GPAX</div>
           <CountUp value={EDUCATION.gpax} className="text-[30px] font-semibold tracking-[-.03em] text-gold tabular-nums" />
         </div>
@@ -175,7 +178,7 @@ export function Contact() {
             whileTap={tapPress}
             className={`${buttonStyles.outline} gap-2 px-5 py-3 text-[15px]`}
           >
-            <LinkedInIcon />
+            <LinkedInIcon size={16} />
             LinkedIn
           </motion.a>
           <motion.a
@@ -186,7 +189,7 @@ export function Contact() {
             whileTap={tapPress}
             className={`${buttonStyles.outline} gap-2 px-5 py-3 text-[15px]`}
           >
-            <LineIcon />
+            <LineIcon size={16} />
             LINE {LINKS.lineId}
           </motion.a>
         </motion.div>

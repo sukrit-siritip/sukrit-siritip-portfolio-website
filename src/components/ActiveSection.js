@@ -14,12 +14,16 @@ const WIDE_QUERY = "(min-width: 960px)";
 export function scrollToSection(id) {
   const el = document.getElementById(id);
   if (!el) return;
-  const offset = window.matchMedia(WIDE_QUERY).matches ? 72 : 76;
+  const offset = window.matchMedia(WIDE_QUERY).matches ? 72 : 80;
   const sc = document.scrollingElement || document.documentElement;
   sc.scrollTo({
     top: Math.max(0, el.getBoundingClientRect().top + sc.scrollTop - offset),
     behavior: "smooth",
   });
+}
+
+export function scrollToTop() {
+  (document.scrollingElement || document.documentElement).scrollTo({ top: 0, behavior: "smooth" });
 }
 
 export function ActiveSectionProvider({ children }) {

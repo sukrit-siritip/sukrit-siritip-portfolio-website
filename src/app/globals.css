@@ -4,6 +4,7 @@
   --font-sans: var(--font-space-grotesk), system-ui, sans-serif;
   --font-mono: var(--font-space-mono), monospace;
 
+  --breakpoint-tab: 37.5rem;
   --breakpoint-wide: 60rem;
 
   --color-page: #161c2a;

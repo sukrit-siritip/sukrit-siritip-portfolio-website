@@ -1,5 +1,5 @@
 import * as motion from "motion/react-client";
-import { VIEWPORT, drawLine, fadeUp, pop, stagger } from "@/lib/motion";
+import { VIEWPORT, drawLine, fadeUp } from "@/lib/motion";
 
 export function SectionTitle({ children, lineClass = "mb-1" }) {
   return (
@@ -13,22 +13,6 @@ export function SectionTitle({ children, lineClass = "mb-1" }) {
       {children}
       <motion.span aria-hidden variants={drawLine} className={`h-px flex-1 origin-left bg-rule ${lineClass}`} />
     </motion.h2>
-  );
-}
-
-export function TechPills({ items, className = "mt-1.5" }) {
-  return (
-    <motion.ul variants={stagger(0.035, 0.2)} className={`flex flex-wrap gap-1.5 ${className}`}>
-      {items.map((t) => (
-        <motion.li
-          key={t}
-          variants={pop}
-          className="rounded-full bg-[rgba(207,174,107,.1)] px-[11px] py-1 text-[12px] font-medium text-gold-chip"
-        >
-          {t}
-        </motion.li>
-      ))}
-    </motion.ul>
   );
 }
 
