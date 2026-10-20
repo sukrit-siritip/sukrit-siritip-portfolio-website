@@ -9,14 +9,15 @@ const navButton =
 
 const SWIPE_PX = 40;
 
-export default function ImageSlider({ images, alt, position = "50% 50%" }) {
+export default function ImageSlider({ images, alt, position = "50% 50%", aspect = "16 / 9" }) {
   const [index, setIndex] = useState(0);
   const n = images.length;
   const go = (j) => setIndex((j + n) % n);
 
   return (
     <motion.div
-      className="relative aspect-video w-full touch-pan-y overflow-hidden rounded-[9px] bg-surface-2"
+      className="relative w-full touch-pan-y overflow-hidden rounded-[9px] bg-surface-2"
+      style={{ aspectRatio: aspect }}
       role="group"
       aria-roledescription="carousel"
       aria-label={alt}

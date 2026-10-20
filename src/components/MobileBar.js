@@ -39,7 +39,7 @@ export default function MobileBar() {
         transition={{ duration: 0.6, ease: EASE }}
         className="sticky top-0 z-40 px-[clamp(12px,4vw,24px)] pt-[10px] wide:hidden"
       >
-        <div className="flex h-[54px] items-center justify-between gap-3 rounded-2xl border border-white/8 bg-[rgba(22,28,42,.72)] pr-2 pl-[18px] shadow-[0_8px_28px_rgba(5,8,15,.35)] backdrop-blur-[16px] backdrop-saturate-[150%]">
+        <div className="flex h-[52px] items-center justify-between gap-3 rounded-2xl border border-white/8 bg-[rgba(22,28,42,.72)] pr-2 pl-[18px] shadow-[0_8px_28px_rgba(5,8,15,.35)] backdrop-blur-[16px] backdrop-saturate-[150%]">
           <button type="button" onClick={scrollToTop} className="flex min-w-0 cursor-pointer items-baseline gap-2.5 rounded-md text-left">
             <span className="text-[16px] font-bold tracking-[-.02em] whitespace-nowrap text-head">
               Sukrit <span className="text-gold">Siritip</span>

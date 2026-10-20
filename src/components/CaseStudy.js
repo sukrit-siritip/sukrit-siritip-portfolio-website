@@ -7,12 +7,30 @@ import { EASE } from "@/lib/motion";
 import Duration from "./Duration";
 import { ChevronIcon, LockIcon } from "./icons";
 
-function Block({ title, children }) {
+function Block({ title, children, as: Tag = "p" }) {
   return (
     <div className="flex flex-col gap-1.5">
       <div className="text-[15px] font-semibold text-gold">{title}</div>
-      <p className="m-0 text-[15px] leading-[1.7] text-pretty text-muted">{children}</p>
+      <Tag className="m-0 text-[15px] leading-[1.7] text-pretty text-muted">{children}</Tag>
     </div>
+  );
+}
+
+function DurationValue({ data, buildMonths }) {
+  if (data.duration) {
+    return (
+      <>
+        {data.duration.range} <span className="whitespace-nowrap text-subtle">({data.duration.note})</span>
+      </>
+    );
+  }
+  return (
+    <>
+      {formatRange(data.period)}{" "}
+      <span className="whitespace-nowrap text-subtle">
+        (<Duration period={data.period} buildMonths={buildMonths} />)
+      </span>
+    </>
   );
 }
 
@@ -57,13 +75,23 @@ export default function CaseStudy({ data, buildMonths }) {
                 <Block title="The Goal">{data.goal}</Block>
                 <Block title="My Role">{data.role}</Block>
                 <Block title="Duration">
-                  {formatRange(data.period)}{" "}
-                  <span className="whitespace-nowrap text-subtle">
-                    (<Duration period={data.period} buildMonths={buildMonths} />)
-                  </span>
+                  <DurationValue data={data} buildMonths={buildMonths} />
                 </Block>
               </div>
-              <Block title="Responsibilities">{data.responsibilities}</Block>
+              {Array.isArray(data.responsibilities) ? (
+                <div className="flex flex-col gap-1.5">
+                  <div className="text-[15px] font-semibold text-gold">Responsibilities</div>
+                  <ul className="m-0 flex list-disc flex-col gap-1.5 pl-[18px] text-[15px] leading-[1.7] text-muted">
+                    {data.responsibilities.map((item) => (
+                      <li key={item} className="text-pretty">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <Block title="Responsibilities">{data.responsibilities}</Block>
+              )}
             </div>
           </motion.div>
         )}

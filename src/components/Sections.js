@@ -1,12 +1,11 @@
 import * as motion from "motion/react-client";
-import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, LINKS, PROJECTS, SKILL_GROUPS } from "@/lib/data";
-import { fadeLeft, fadeUp, hoverLift, pop, stagger, tapPress } from "@/lib/motion";
+import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, LINKS, PROJECTS, SIDE_PROJECTS, SKILL_GROUPS } from "@/lib/data";
+import { fadeLeft, fadeUp, pop, stagger, tapPress } from "@/lib/motion";
 import { countMonths, formatRange } from "@/lib/period";
-import CaseStudy from "./CaseStudy";
 import CountUp from "./CountUp";
 import Duration from "./Duration";
 import { LineIcon, LinkedInIcon } from "./icons";
-import ImageSlider from "./ImageSlider";
+import ProjectCard from "./ProjectCard";
 import { Reveal, SectionTitle, buttonStyles } from "./ui";
 
 export function About() {
@@ -65,34 +64,18 @@ export function Projects() {
     <section id="projects" className="flex flex-col gap-5">
       <SectionTitle>Projects</SectionTitle>
       {PROJECTS.map((p) => (
-        <Reveal
-          as="article"
-          key={p.title}
-          whileHover={hoverLift}
-          className="group flex flex-col gap-[22px] rounded-[14px] border border-line bg-surface px-3 pt-3 pb-[26px] transition-[border-color,box-shadow] duration-250 hover:border-focus hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,.6)]"
-        >
-          <ImageSlider images={p.images} alt={p.title} position={p.imagePosition} />
-          <div className="flex flex-col gap-[10px] px-3">
-            <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <h3 className="m-0 text-[20px] font-semibold tracking-[-.015em] text-head">{p.title}</h3>
-              {p.link ? (
-                <a href={p.link.href} target="_blank" rel="noopener" className="text-[14px] text-gold hover:text-gold-light">
-                  {p.link.label}
-                </a>
-              ) : (
-                <span className="inline-flex items-center gap-1.5 text-[13px] text-subtle">
-                  <span aria-hidden className="relative flex size-1.5">
-                    <span className="absolute inset-0 animate-ping rounded-full bg-subtle opacity-60" />
-                    <span className="relative size-1.5 rounded-full bg-subtle" />
-                  </span>
-                  {p.label}
-                </span>
-              )}
-            </div>
-            <p className="m-0 text-[15px] leading-[1.65] text-pretty text-muted">{p.description}</p>
-            <CaseStudy data={p.caseStudy} buildMonths={countMonths(p.caseStudy.period)} />
-          </div>
-        </Reveal>
+        <ProjectCard key={p.title} project={p} />
+      ))}
+    </section>
+  );
+}
+
+export function SideProjects() {
+  return (
+    <section id="side" className="flex flex-col gap-5">
+      <SectionTitle lineClass="mb-3">Side Projects</SectionTitle>
+      {SIDE_PROJECTS.map((p) => (
+        <ProjectCard key={p.title} project={p} />
       ))}
     </section>
   );
@@ -194,7 +177,7 @@ export function Contact() {
           </motion.a>
         </motion.div>
       </Reveal>
-      <footer className="mt-[72px] flex flex-wrap justify-between gap-3 border-t border-line pt-6 text-[13px] text-subtle">
+      <footer className="mt-12 flex tab:mt-[72px] flex-wrap justify-between gap-3 border-t border-line pt-6 text-[13px] text-subtle">
         <span>{CONTACT.footerLeft}</span>
         <span>{CONTACT.footerRight}</span>
       </footer>
