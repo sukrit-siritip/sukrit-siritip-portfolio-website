@@ -1,5 +1,5 @@
 import * as motion from "motion/react-client";
-import { ABOUT, CONTACT, EDUCATION, EXPERIENCE, LINKS, PROJECTS, SIDE_PROJECTS, SKILL_GROUPS } from "@/lib/data";
+import { ABOUT, CERTIFICATIONS, CONTACT, EDUCATION, EXPERIENCE, LINKS, PROJECTS, SIDE_PROJECTS, SKILL_GROUPS } from "@/lib/data";
 import { fadeLeft, fadeUp, pop, stagger, tapPress } from "@/lib/motion";
 import { countMonths, formatRange } from "@/lib/period";
 import CountUp from "./CountUp";
@@ -129,6 +129,41 @@ export function Education() {
           <CountUp value={EDUCATION.gpax} className="text-[30px] font-semibold tracking-[-.03em] text-gold tabular-nums" />
         </div>
       </Reveal>
+    </section>
+  );
+}
+
+export function Certifications() {
+  return (
+    <section id="certifications" className="flex flex-col gap-5">
+      <SectionTitle>Certifications</SectionTitle>
+      {CERTIFICATIONS.map((c) => (
+        <Reveal
+          key={c.title}
+          className="flex flex-col gap-2 rounded-[14px] border border-line bg-surface p-6 tab:flex-row tab:flex-wrap tab:gap-x-7"
+        >
+          <div className="font-mono text-[12.5px] text-muted tab:flex-[0_0_116px] tab:pt-1">{c.date}</div>
+          <div className="min-w-0 tab:flex-[1_1_240px]">
+            <h3 className="m-0 text-[18px] font-semibold text-head">{c.title}</h3>
+            <div className="mt-1 text-[15px] leading-[1.6] text-muted">{c.detail}</div>
+            <a
+              href={c.href}
+              target="_blank"
+              rel="noopener"
+              className="mt-3 inline-block text-[14px] font-medium text-gold underline-offset-4 hover:underline"
+            >
+              View certificate ↗
+            </a>
+          </div>
+          <div className="mt-3 flex items-center justify-between border-t border-line pt-4 tab:mt-0 tab:flex-col tab:items-start tab:justify-start tab:border-0 tab:pt-0">
+            <div className="text-[12px] tracking-[.08em] text-subtle uppercase">{c.scoreLabel}</div>
+            <div className="flex items-baseline gap-1">
+              <CountUp value={c.score} className="text-[30px] font-semibold tracking-[-.03em] text-gold tabular-nums" />
+              <span className="text-[14px] text-subtle">/100</span>
+            </div>
+          </div>
+        </Reveal>
+      ))}
     </section>
   );
 }

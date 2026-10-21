@@ -3,7 +3,7 @@ import ConstellationBackground from "@/components/ConstellationBackground";
 import MagneticCursor from "@/components/MagneticCursor";
 import MobileBar from "@/components/MobileBar";
 import ScrollProgress from "@/components/ScrollProgress";
-import { About, Contact, Education, Experience, Projects, SideProjects, Skills } from "@/components/Sections";
+import { About, Certifications, Contact, Education, Experience, Projects, SideProjects, Skills } from "@/components/Sections";
 import Sidebar from "@/components/Sidebar";
 import { FEATURES } from "@/lib/data";
 
@@ -22,6 +22,7 @@ export default function Home() {
             <Experience />
             <Skills />
             <Education />
+            <Certifications />
             <Contact />
           </main>
         </div>

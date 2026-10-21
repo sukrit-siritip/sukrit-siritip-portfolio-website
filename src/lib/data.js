@@ -20,6 +20,7 @@ export const NAV_ITEMS = [
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "education", label: "Education" },
+  { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -162,6 +163,17 @@ export const EDUCATION = {
   degree: "B.Eng. Software Engineering · School of Applied Digital Technology",
   gpax: "3.70",
 };
+
+export const CERTIFICATIONS = [
+  {
+    date: "Oct 2026",
+    title: "EF SET English Certificate",
+    detail: "C1 Advanced · 90-minute four-skill test",
+    score: "61",
+    scoreLabel: "EF SET",
+    href: "https://cert.efset.org/th/iBcZ9b",
+  },
+];
 
 export const CONTACT = {
   heading: "Open to frontend roles, especially in Bangkok and nearby areas.",
