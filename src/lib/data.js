@@ -5,8 +5,8 @@ export const FEATURES = {
 
 export const LINKS = {
   resume:
-    "https://drive.google.com/file/d/1jed8DGp1ApumsqjbSuP3DrLMALZTwfEs/view?usp=sharing",
-  linkedin: "https://www.linkedin.com/in/sukrit-siritip-82b976324",
+    "https://drive.google.com/file/d/1ombcaidTrToizUkj7aUlB4229hh5-OKl/view?usp=sharing",
+  linkedin: "https://www.linkedin.com/in/sukrit-siritip/",
   lineId: "@salvations666",
   line: "https://line.me/ti/p/~salvations666",
   github: "https://github.com/sukrit-siritip",
